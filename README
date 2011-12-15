@@ -1,0 +1,18 @@
+Simulador de Redes Completamente Opticas
+
+Requerimientos para compilarlo y correrlo
+
+- Sistema Operativo GNU Linux
+- Compilador GNU gcc preferiblemente
+- Biblioteca Aleph para estructuras de datos (Ver aqui un manual de instalacion: http://leandro.radixedu.org.ve/showthread.php?tid=3)
+- Biblioteca GNU Scientific Library (GSL) para generacion de numeros aleatorios
+- Biblioteca gettext
+- Utilitarios requeridos por Aleph: Bibliotecas nana, gmp y mpfr
+- Bilioteca QT4
+- qt4-qmake (Preferiblemente usar el IDE Qt Creator descargable en: http://qt.nokia.com/downloads/)
+
+Autores:
+Alejandro Mujica aledrums@gmail.com
+Anna Lezama annitap4@gmail.com
+
+Universidad de Los Andes

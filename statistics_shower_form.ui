@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Shower_Statistics_Form</class>
+ <widget class="QWidget" name="Shower_Statistics_Form">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>819</width>
+    <height>520</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <widget class="QTextEdit" name="textEdit">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>10</y>
+     <width>801</width>
+     <height>471</height>
+    </rect>
+   </property>
+   <property name="readOnly">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btn_close">
+   <property name="geometry">
+    <rect>
+     <x>715</x>
+     <y>489</y>
+     <width>98</width>
+     <height>27</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>&amp;Cerrar</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btn_save">
+   <property name="geometry">
+    <rect>
+     <x>615</x>
+     <y>489</y>
+     <width>98</width>
+     <height>27</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>&amp;Guardar</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>btn_close</sender>
+   <signal>clicked()</signal>
+   <receiver>Shower_Statistics_Form</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>538</x>
+     <y>353</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>298</x>
+     <y>189</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>

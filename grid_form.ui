@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Grid_Form</class>
+ <widget class="QWidget" name="Grid_Form">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>620</width>
+    <height>689</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Grid</string>
+  </property>
+  <widget class="QWidget" name="verticalLayoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>621</width>
+     <height>621</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="vlayout">
+    <property name="sizeConstraint">
+     <enum>QLayout::SetDefaultConstraint</enum>
+    </property>
+   </layout>
+  </widget>
+  <widget class="QCheckBox" name="chk_out">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>140</x>
+     <y>630</y>
+     <width>70</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Salida</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="chk_in">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>630</y>
+     <width>91</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Entrada</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btn_start">
+   <property name="geometry">
+    <rect>
+     <x>280</x>
+     <y>626</y>
+     <width>98</width>
+     <height>27</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>&amp;Start</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btn_configure">
+   <property name="geometry">
+    <rect>
+     <x>510</x>
+     <y>655</y>
+     <width>98</width>
+     <height>27</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>&amp;Configurar</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btn_statistics">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>510</x>
+     <y>626</y>
+     <width>98</width>
+     <height>27</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>&amp;Estadisticas</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

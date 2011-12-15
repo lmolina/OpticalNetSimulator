@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Configuracion</class>
+ <widget class="QWidget" name="Configuracion">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>400</width>
+    <height>263</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Configuracion</string>
+  </property>
+  <widget class="QGroupBox" name="groupBox">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>20</y>
+     <width>281</width>
+     <height>101</height>
+    </rect>
+   </property>
+   <property name="title">
+    <string>Dimensiones de la grid</string>
+   </property>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>110</x>
+      <y>36</y>
+      <width>41</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Ancho</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>121</x>
+      <y>62</y>
+      <width>31</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Alto</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="txt_width">
+    <property name="geometry">
+     <rect>
+      <x>155</x>
+      <y>30</y>
+      <width>113</width>
+      <height>27</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="txt_height">
+    <property name="geometry">
+     <rect>
+      <x>155</x>
+      <y>58</y>
+      <width>113</width>
+      <height>27</height>
+     </rect>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QGroupBox" name="groupBox_2">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>120</y>
+     <width>281</width>
+     <height>81</height>
+    </rect>
+   </property>
+   <property name="title">
+    <string>Simulacion</string>
+   </property>
+   <widget class="QLabel" name="label_4">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>24</y>
+      <width>161</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Numero de Iteraciones</string>
+    </property>
+   </widget>
+   <widget class="QSpinBox" name="spin_num_it">
+    <property name="geometry">
+     <rect>
+      <x>166</x>
+      <y>20</y>
+      <width>101</width>
+      <height>27</height>
+     </rect>
+    </property>
+    <property name="value">
+     <number>1</number>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>29</x>
+      <y>54</y>
+      <width>141</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Media para Poisson</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="txt_mu">
+    <property name="geometry">
+     <rect>
+      <x>167</x>
+      <y>50</y>
+      <width>101</width>
+      <height>27</height>
+     </rect>
+    </property>
+    <property name="toolTip">
+     <string>Media para la generacion de paquetes</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QPushButton" name="btn_accept">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>230</y>
+     <width>101</width>
+     <height>27</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>&amp;Aceptar</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btn_cancel">
+   <property name="geometry">
+    <rect>
+     <x>110</x>
+     <y>230</y>
+     <width>101</width>
+     <height>27</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>&amp;Cancelar</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btn_make_default">
+   <property name="geometry">
+    <rect>
+     <x>280</x>
+     <y>230</y>
+     <width>111</width>
+     <height>27</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>&amp;Predeterminar</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
