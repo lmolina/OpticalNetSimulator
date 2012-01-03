@@ -3,8 +3,10 @@
 
 # include <grid.H>
 # include <minimum_deflection.H>
+# include <dijkstra_routing.H>
 # include <sim_listener.H>
 # include <configuration.H>
+# include <misc.H>
 
 # include <fstream>
 
@@ -42,6 +44,8 @@ class Simulator
   Statistics * statistics;
 
   Configuration * conf;
+
+  Routing_Algorithm routing_algorithm;
 
   void fire_event(const Event_Type &);
 
@@ -100,6 +104,7 @@ public:
 template <class Routing_Algo>
 void Simulator::step()
 {
+    cout << "asdfasdf";
   if (entrances.is_empty() or exits.is_empty())
     throw std::logic_error("Debe seleccionar al menos un nodo entrada y una salida");
 

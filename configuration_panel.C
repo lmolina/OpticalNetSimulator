@@ -14,6 +14,11 @@ Configuration_Panel::Configuration_Panel(QWidget *parent)
   ui.txt_width->setValidator(new QIntValidator());
   ui.txt_height->setValidator(new QIntValidator());
   ui.txt_mu->setValidator(new QDoubleValidator());
+
+  ui.combo_routing_alg->addItem(QString("Minimum_Deflection"));
+  ui.combo_routing_alg->addItem(QString("Dijkstra_Routing"));
+  ui.combo_routing_alg->setCurrentIndex(conf->get_routing_algorithm());
+
   connect(ui.btn_accept, SIGNAL(clicked()), this, SLOT(btn_accept_pressed()));
   connect(ui.btn_cancel, SIGNAL(clicked()), this, SLOT(btn_cancel_pressed()));
   connect(ui.btn_make_default, SIGNAL(clicked()), this, SLOT(btn_make_default_pressed()));
@@ -47,10 +52,26 @@ bool Configuration_Panel::conf_change()
       ui.txt_mu->setFocus();
       return false;
     }
+
+  switch(ui.combo_routing_alg->currentIndex())
+  {
+  case 0:
+      conf->set_routing_algorithm(A_Minimum_Deflection);
+      break;
+  case 1:
+      conf->set_routing_algorithm(A_Dijkstra_Routing);
+      break;
+  default:
+      QMessageBox::critical(this, QString("Error"), QString("Debe seleccionar un algoritmo de enrutamiento soportado"));
+      ui.combo_routing_alg->setFocus();
+      return false;
+  }
+
   conf->set_grid_width(ui.txt_width->text().toULong());
   conf->set_grid_height(ui.txt_height->text().toULong());
   conf->set_num_iterations(ui.spin_num_it->value());
   conf->set_mu(ui.txt_mu->text().toDouble());
+
   emit change();
   return true;
 }

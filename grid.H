@@ -334,6 +334,31 @@ public:
         arc->reset();
       }
   }
+
+  Arc * get_link(Node * n1, Node * n2)
+  {
+      for (Node_Arc_Iterator it(n1); it.has_current(); it.next())
+      {
+          Arc * arc = it.get_current();
+          if (get_tgt_node(arc) == n2)
+              return arc;
+      }
+      return NULL;
+  }
+
+  DynDlist< Node * > & get_neighbors(Node * node)
+  {
+      DynDlist< Node * > neighbors;
+      for (Node_Arc_Iterator it(node); it.has_current(); it.next())
+      {
+          Arc * arc = it.get_current();
+          if (get_src_node(arc) == node)
+              neighbors.append(get_tgt_node(arc));
+          else
+              neighbors.append(get_src_node(arc));
+      }
+      return neighbors;
+  }
 };
 
 /**

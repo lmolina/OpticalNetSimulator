@@ -12,6 +12,7 @@ Simulator::Simulator() : packages_counter(0)
   num_iterations = conf->get_num_iterations();
   grid_height = conf->get_grid_height();
   grid_width = conf->get_grid_width();
+  routing_algorithm = conf->get_routing_algorithm();
 
   grid.set_height(grid_height);
   grid.set_width(grid_width);

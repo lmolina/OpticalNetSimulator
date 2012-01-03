@@ -6,6 +6,8 @@
 
 # include <cstring>
 
+# include <misc.H>
+
 # define HEADER_SIZE 64
 
 class Configuration
@@ -16,6 +18,7 @@ class Configuration
   unsigned long grid_height;
   unsigned long long num_iterations;
   double mu;
+  Routing_Algorithm routing_algorithm;
 
   Configuration();
 
@@ -33,6 +36,8 @@ public:
 
   const double & get_mu() const;
 
+  const Routing_Algorithm & get_routing_algorithm() const;
+
   void set_grid_width(const unsigned long &);
 
   void set_grid_height(const unsigned long &);
@@ -40,6 +45,8 @@ public:
   void set_num_iterations(const unsigned long long &);
 
   void set_mu(const double &);
+
+  void set_routing_algorithm(const Routing_Algorithm & ra);
 
   void save();
 

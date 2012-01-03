@@ -18,8 +18,7 @@ LIBS += -L/usr/local/lib \
 CONFIG += warn_off
 
 # Input
-HEADERS += \
-    grid.H \
+HEADERS += grid.H \
     misc.H \
     package.H \
     grid_window.H \
@@ -33,9 +32,9 @@ HEADERS += \
     configuration_panel.H \
     statistics_panel.H \
     statistics_shower_panel.H \
-    minimum_deflection.H
-SOURCES += \
-    grid_window.C \
+    minimum_deflection.H \
+    dijkstra_routing.H
+SOURCES += grid_window.C \
     grid_panel.C \
     simulator.C \
     statistics_per_element.C \
@@ -50,10 +49,4 @@ FORMS += grid_form.ui \
     configuration_form.ui \
     statistics_form.ui \
     statistics_shower_form.ui
-
-OTHER_FILES += \
-    simulator.cfg
-
-
-
-
+OTHER_FILES += simulator.cfg

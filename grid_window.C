@@ -1,7 +1,7 @@
 # include <grid_window.H>
 
 Grid_Window::Grid_Window(QWidget * parent) :
-  QWidget(parent), simulator(NULL), editable(true), routing_algorithm(A_Minimum_Deflection)
+  QWidget(parent), simulator(NULL), editable(true)
 {
   conf = Configuration::get_instance();
 
@@ -14,6 +14,8 @@ Grid_Window::Grid_Window(QWidget * parent) :
       conf->save();
     }
 
+  // routing_algorithm = A_Minimum_Deflection;
+  routing_algorithm = conf->get_routing_algorithm();
   ui.setupUi(this);
   simulator = new Simulator();
   panel = new Grid_Panel(simulator->get_grid(), this);
@@ -102,13 +104,17 @@ void Grid_Window::stop()
 
 void Grid_Window::execute()
 {
+  // TODO: Routing_Algorithm deberia ser conocido por el simulador y no por Grid_Window
   try
-    {
-    switch (routing_algorithm)
+  {
+      switch (routing_algorithm)
       {
       case A_Minimum_Deflection:
-        simulator->step<Minimum_Deflection>();
-        break;
+          simulator->step<Minimum_Deflection>();
+          break;
+      case A_Dijkstra_Routing:
+          simulator->step<DijkstraRouting>();
+          break;
       default:
         QMessageBox::critical(this,
                               "Error",

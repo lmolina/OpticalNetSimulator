@@ -26,6 +26,7 @@
 enum Routing_Algorithm
 {
   A_Minimum_Deflection,
+  A_Dijkstra_Routing,
   Num_Routing_Algorithms
 };
 

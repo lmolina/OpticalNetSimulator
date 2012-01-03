@@ -41,6 +41,11 @@ const double & Configuration::get_mu() const
   return mu;
 }
 
+const Routing_Algorithm & Configuration::get_routing_algorithm() const
+{
+    return routing_algorithm;
+}
+
 void Configuration::set_grid_width(const unsigned long & w)
 {
   grid_width = w;
@@ -61,6 +66,11 @@ void Configuration::set_mu(const double & m)
   mu = m;
 }
 
+void Configuration::set_routing_algorithm(const Routing_Algorithm & ra)
+{
+    routing_algorithm = ra;
+}
+
 void Configuration::save()
 {
   std::ofstream file("properties.conf", std::ios::out | std::ios::binary);
@@ -76,6 +86,7 @@ void Configuration::save()
   file.write(reinterpret_cast<char *>(&grid_height), sizeof(unsigned long));
   file.write(reinterpret_cast<char *>(&num_iterations), sizeof(unsigned long long));
   file.write(reinterpret_cast<char *>(&mu), sizeof(double));
+  file.write(reinterpret_cast<char *>(&routing_algorithm), sizeof(routing_algorithm));
 
   file.close();
 }
@@ -98,6 +109,7 @@ void Configuration::load()
   file.read(reinterpret_cast<char *>(&grid_height), sizeof(unsigned long));
   file.read(reinterpret_cast<char *>(&num_iterations), sizeof(unsigned long long));
   file.read(reinterpret_cast<char *>(&mu), sizeof(double));
+  file.read(reinterpret_cast<char *>(&routing_algorithm), sizeof(routing_algorithm));
 
   file.close();
 }

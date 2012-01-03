@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>400</width>
-    <height>263</height>
+    <height>328</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -76,13 +76,22 @@
    <property name="geometry">
     <rect>
      <x>50</x>
-     <y>120</y>
+     <y>110</y>
      <width>281</width>
-     <height>81</height>
+     <height>111</height>
     </rect>
    </property>
    <property name="title">
     <string>Simulacion</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+   <property name="flat">
+    <bool>false</bool>
+   </property>
+   <property name="checkable">
+    <bool>false</bool>
    </property>
    <widget class="QLabel" name="label_4">
     <property name="geometry">
@@ -136,45 +145,82 @@
      <string>Media para la generacion de paquetes</string>
     </property>
    </widget>
+   <widget class="QComboBox" name="combo_routing_alg">
+    <property name="geometry">
+     <rect>
+      <x>170</x>
+      <y>80</y>
+      <width>85</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+   </widget>
   </widget>
-  <widget class="QPushButton" name="btn_accept">
+  <widget class="QGroupBox" name="groupBox_3">
    <property name="geometry">
     <rect>
      <x>10</x>
      <y>230</y>
-     <width>101</width>
-     <height>27</height>
+     <width>371</width>
+     <height>101</height>
     </rect>
    </property>
-   <property name="text">
-    <string>&amp;Aceptar</string>
+   <property name="font">
+    <font>
+     <family>Cantarell</family>
+    </font>
    </property>
-  </widget>
-  <widget class="QPushButton" name="btn_cancel">
-   <property name="geometry">
-    <rect>
-     <x>110</x>
-     <y>230</y>
-     <width>101</width>
-     <height>27</height>
-    </rect>
+   <property name="title">
+    <string/>
    </property>
-   <property name="text">
-    <string>&amp;Cancelar</string>
+   <property name="alignment">
+    <set>Qt::AlignBottom|Qt::AlignHCenter</set>
    </property>
-  </widget>
-  <widget class="QPushButton" name="btn_make_default">
-   <property name="geometry">
-    <rect>
-     <x>280</x>
-     <y>230</y>
-     <width>111</width>
-     <height>27</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>&amp;Predeterminar</string>
-   </property>
+   <widget class="QPushButton" name="btn_accept">
+    <property name="geometry">
+     <rect>
+      <x>120</x>
+      <y>30</y>
+      <width>101</width>
+      <height>27</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>&amp;Aceptar</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_make_default">
+    <property name="geometry">
+     <rect>
+      <x>260</x>
+      <y>30</y>
+      <width>111</width>
+      <height>27</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>&amp;Predeterminar</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_cancel">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>30</y>
+      <width>101</width>
+      <height>27</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>&amp;Cancelar</string>
+    </property>
+   </widget>
   </widget>
  </widget>
  <resources/>
