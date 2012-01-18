@@ -23,7 +23,8 @@ struct Compare
 };
 
 /**
-  * \brief Clase que contiene utiliza el algor&iacute;mo de Dijkstra para seenrutar los paquetes en una red completamente &Oacute;tica
+  * \brief Clase que utiliza el algor&iacute;mo de Dijkstra para seenrutar los
+  * paquetes en una red completamente &Oacute;tica
   * @authors Laudin Alessandro Molina, Diego Paez
   */
 class DijkstraRouting
@@ -81,9 +82,22 @@ public:
     DynDlist< Package * > & client_list = node->get_clients_list();
 
     // Lista de los nodos vecinos
-    DynDlist< Grid::Node * > & neighbors = g.get_neighbors(node);
+    // DynDlist< Grid::Node * > & neighbors = g.get_neighbors(node);
+
+    // TODO: mover a la clase Grid (al moverse provoca una violacion de
+    // segmento, probablemente debido a retorno mal realizado
+    DynDlist< Grid::Node * > neighbors;
+    for (Grid::Node_Arc_Iterator it(node); it.has_current(); it.next())
+    {
+        Grid::Arc * arc = it.get_current();
+        if (g.get_src_node(arc) == node)
+            neighbors.append(g.get_tgt_node(arc));
+        else
+            neighbors.append(g.get_src_node(arc));
+    }
 
     Path< Grid > min_path(g);
+
     PathSizeNode path_size;
 
     // TODO Es simple/eficiente (cambiar por ordenamiento manual?)?
@@ -100,13 +114,19 @@ public:
            it_neighbors.has_current(); it_neighbors.next())
       {
         Grid::Node * next_node = it_neighbors.get_current();
+
         min_path.clear_path();
 
         //dijkstra_min_path< Grid, Distance >(g, next_node,
         //                                    curr_package->get_target_node(), min_path);
         //                                    
         
-        find_path_breadth_first(g, next_node, curr_package->get_target_node(), min_path);
+        //find_path_breadth_first(g, next_node, curr_package->get_target_node(), min_path);
+
+        //std::cout << std::endl << "next_node: " << next_node->get_info() << std::endl;
+        //std::cout << "curr_package: " << curr_package->get_target_node()->get_info() << std::endl;
+        Find_Path_Breadth_First<Grid>()(g, next_node, curr_package->get_target_node(), min_path);
+
         path_size.node = next_node;
 
         // FIXME
