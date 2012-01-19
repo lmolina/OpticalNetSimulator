@@ -1,12 +1,10 @@
 # ifndef DIJKSTRA_ROUTING_H
 # define DIJKSTRA_ROUTING_H
 
-# include <network.H>
 # include <package.H>
 # include <statistics.H>
 # include <Dijkstra.H>
 # include <tpl_dynBinHeap.H>
-# include <tpl_graph.H>
 
 struct PathSizeNode
 {
@@ -37,7 +35,6 @@ public:
     */
   void operator()(Grid & g, Grid::Node * node)
   {
-      cout << "Dijkstra";
     /*************************************************************************
      * 0. Entrar en el nodo
      * I.1. Calcular el arbol de expansion minima
@@ -72,9 +69,6 @@ public:
     if (node->get_clients_list().is_empty())
       return;
 
-    // TODO resetear los arcos se debe realizar solo una vez en cada iteracion, mover a simulator
-    g.reset_all_arcs();
-
     Statistics * statistics = Statistics::get_instance();
     std::string node_name = node->to_string();
 
@@ -97,16 +91,12 @@ public:
     }
 
     Path< Grid > min_path(g);
-
     PathSizeNode path_size;
-
-    // TODO Es simple/eficiente (cambiar por ordenamiento manual?)?
     DynBinHeap< PathSizeNode, Compare > paths_size;
 
-    for (DynDlist< Package * >::Iterator it_clients(client_list);
-         it_clients.has_current(); it_clients.next())
+    while(not client_list.is_empty())
     {
-      Package *& curr_package = it_clients.get_current();
+      Package *& curr_package = client_list.get_first();
 
       // Calcular el tamanio de la ruta hasta el destino desde cada uno de los
       // vecinos del nodo actual
@@ -117,14 +107,6 @@ public:
 
         min_path.clear_path();
 
-        //dijkstra_min_path< Grid, Distance >(g, next_node,
-        //                                    curr_package->get_target_node(), min_path);
-        //                                    
-        
-        //find_path_breadth_first(g, next_node, curr_package->get_target_node(), min_path);
-
-        //std::cout << std::endl << "next_node: " << next_node->get_info() << std::endl;
-        //std::cout << "curr_package: " << curr_package->get_target_node()->get_info() << std::endl;
         Find_Path_Breadth_First<Grid>()(g, next_node, curr_package->get_target_node(), min_path);
 
         path_size.node = next_node;
@@ -138,7 +120,7 @@ public:
         paths_size.insert(path_size);
       }
 
-      // Utilizar el camino mas corto disponible
+      // Utilizar el camino disponible mas corto
       while(not paths_size.is_empty())
       {
         Grid::Node * tgt = paths_size.get().node;

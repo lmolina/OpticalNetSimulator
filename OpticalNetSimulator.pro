@@ -32,8 +32,8 @@ HEADERS += grid.H \
     configuration_panel.H \
     statistics_panel.H \
     statistics_shower_panel.H \
-    minimum_deflection.H \
-    dijkstra_routing.H
+    dijkstra_routing.H \
+    minimum_deflection.H
 SOURCES += grid_window.C \
     grid_panel.C \
     simulator.C \

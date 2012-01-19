@@ -14,7 +14,6 @@ Grid_Window::Grid_Window(QWidget * parent) :
       conf->save();
     }
 
-  // routing_algorithm = A_Minimum_Deflection;
   routing_algorithm = conf->get_routing_algorithm();
   ui.setupUi(this);
   simulator = new Simulator();

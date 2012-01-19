@@ -104,7 +104,6 @@ public:
 template <class Routing_Algo>
 void Simulator::step()
 {
-    cout << "asdfasdf";
   if (entrances.is_empty() or exits.is_empty())
     throw std::logic_error("Debe seleccionar al menos un nodo entrada y una salida");
 
@@ -119,6 +118,7 @@ void Simulator::step()
       for (Grid::Node_Iterator it(grid); it.has_current(); it.next())
         {
           Grid::Node * curr_node = it.get_current();
+          grid.reset_all_arcs();
           Routing_Algo()(grid, curr_node);
         }
       move_packages();

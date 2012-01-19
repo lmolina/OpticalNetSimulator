@@ -5,7 +5,7 @@ Simulator::Simulator() : packages_counter(0)
   conf = Configuration::get_instance();
 
   rng = gsl_rng_alloc(gsl_rng_mt19937);
-  gsl_rng_set(rng, time(NULL) % gsl_rng_max(rng));
+  //gsl_rng_set(rng, time(NULL) % gsl_rng_max(rng));
 
   statistics = Statistics::get_instance();
 
