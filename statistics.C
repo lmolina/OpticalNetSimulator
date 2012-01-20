@@ -1,4 +1,5 @@
 # include <statistics.H>
+# include <configuration.H>
 
 Statistics * Statistics::instance = NULL;
 
@@ -96,8 +97,21 @@ Statistics_Per_Element * Statistics::search_node_statistic(const std::string & n
 
 void Statistics::print()
 {
+    Configuration * conf;
+
+    conf = Configuration::get_instance();
+
+
   std::cout << "Resultados de la Simulacion" << std::endl << std::endl;
-  std::cout << "Numero de iteraciones: " << get_num_iterations() << std::endl;
+  switch (conf->get_routing_algorithm()){
+      case A_Minimum_Deflection: std::cout << "Algoritmo de enrutamiento: Deflexion Minima" << std::endl << std::endl;
+                          break;
+      case A_Dijkstra_Routing: std::cout << "Algoritmo de enrutamiento: Dijkstra" << std::endl << std::endl;
+                          break;
+      default: std::cout << " Dijkstra" << std::endl << std::endl;
+          break;
+  }
+  std::cout << "Numero de iteraciones 2: " << get_num_iterations() << std::endl;
   std::cout << "Numero de paquetes generados: " <<  get_generated_packages() << std::endl;
   std::cout << "Numero de paquetes en cola: " <<  get_num_packages_in_queue() << std::endl;
   std::cout << "Numero de paquetes entregados: " << get_deliveried_packages() << std::endl;

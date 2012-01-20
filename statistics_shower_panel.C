@@ -71,9 +71,20 @@ Statistics_Shower_Panel::Statistics_Shower_Panel(const Statistics_To_Show & s,
         }
     case General:
         {
+          Configuration * conf;
+
+          conf = Configuration::get_instance();
+
           window_title = "Estadisticas Generales";
 
           ui.textEdit->append(QString("Resultados generales de la Simulacion\n"));
+          switch (conf->get_routing_algorithm()){
+              case A_Minimum_Deflection: ui.textEdit->append(QString("Algoritmo de enrutamiento: Deflexion Minima\n"));
+                                  break;
+              case A_Dijkstra_Routing: ui.textEdit->append(QString("Algoritmo de enrutamiento: Dijkstra\n"));
+                                  break;
+
+          }          
           char buffer[1024];
           sprintf(buffer, "Numero de iteraciones: %ld", statistics->get_num_iterations());
           ui.textEdit->append(QString(buffer));
