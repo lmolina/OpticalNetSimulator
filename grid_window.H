@@ -27,9 +27,6 @@ Q_OBJECT
 
   Configuration * conf;
 
-  // TODO: Routing_Algorithm deberia ser conocido por el simulador y no por Grid_Window
-  Routing_Algorithm routing_algorithm;
-
 public:
   Grid_Panel * panel;
 

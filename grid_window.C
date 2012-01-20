@@ -14,7 +14,7 @@ Grid_Window::Grid_Window(QWidget * parent) :
       conf->save();
     }
 
-  routing_algorithm = conf->get_routing_algorithm();
+
   ui.setupUi(this);
   simulator = new Simulator();
   panel = new Grid_Panel(simulator->get_grid(), this);
@@ -103,7 +103,7 @@ void Grid_Window::stop()
 
 void Grid_Window::execute()
 {
-  // TODO: Routing_Algorithm deberia ser conocido por el simulador y no por Grid_Window
+  Routing_Algorithm routing_algorithm = conf->get_routing_algorithm();
   try
   {
       switch (routing_algorithm)
